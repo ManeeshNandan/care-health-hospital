@@ -1,8 +1,57 @@
-/* Mobile layout refinements */
+/* Mobile layout refinements + real doctor photograph */
 .mobile-title{display:none}
-/* Real doctor portrait */
-.portrait-frame{background-image:url('dr-reshma.svg');background-size:cover;background-position:center top;overflow:hidden}
-.portrait-content,.portrait-line{display:none!important}
+
+/* Use the actual doctor image already uploaded to this repository. */
+.portrait-frame{
+  background-image:url('D4D2696D-443A-4184-A4F1-EBA2C4E6B08F.png');
+  background-size:cover;
+  background-position:center 18%;
+  overflow:hidden;
+  isolation:isolate;
+  box-shadow:0 24px 55px rgba(14,65,60,.12);
+}
+.portrait-frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(to bottom,rgba(255,255,255,0) 48%,rgba(255,255,255,.06) 58%,rgba(238,247,233,.94) 88%,rgba(238,247,233,.98) 100%);
+  pointer-events:none;
+}
+.portrait-content{
+  display:block!important;
+  position:absolute!important;
+  left:0;
+  bottom:0;
+  z-index:3;
+  width:100%;
+  padding:0 28px 30px!important;
+}
+.portrait-monogram{display:none!important}
+.portrait-content span{
+  display:block;
+  font-size:9px;
+  letter-spacing:3px;
+  color:#346d93;
+  font-weight:800;
+  margin-top:0;
+}
+.portrait-content strong{
+  display:block;
+  font:700 27px Manrope,sans-serif;
+  line-height:1.08;
+  margin-top:5px;
+  letter-spacing:-.8px;
+  color:#15385a;
+}
+.portrait-content small{
+  display:block;
+  margin-top:5px;
+  color:#547083;
+  font-weight:700;
+}
+.portrait-line{display:none!important}
+
 @media (max-width: 767px) {
   html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
   .container { width: min(100% - 32px, 1160px); }
@@ -46,7 +95,9 @@
   .doctor-grid, .hours-grid, .visit-grid { grid-template-columns: 1fr; gap: 42px; }
   .doctor-art { min-height: 390px; }
   .portrait-frame { height: 390px; width: min(310px, 100%); }
-  .doctor-badge { right: 0; bottom: 18px; }
+  .portrait-content { padding: 0 24px 26px!important; }
+  .portrait-content strong { font-size: 25px; }
+  .doctor-badge { right: 0; bottom: 18px; z-index:5; }
   .big-hours { font-size: clamp(31px, 9vw, 45px); letter-spacing: -2px; margin: 40px 0 30px; }
   .big-hours span { padding: 0 4px; }
   .hours-panel { padding: 24px; border-radius: 24px; }
