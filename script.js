@@ -36,3 +36,15 @@ window.addEventListener('scroll', () => {
 backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Force the real founder photograph onto the doctor card.
+// This also bypasses any stale mobile CSS that may still show the old placeholder.
+document.querySelectorAll('.portrait-frame').forEach(frame => {
+  frame.style.backgroundImage = "url('dr-reshma.svg?v=5')";
+  frame.style.backgroundSize = 'cover';
+  frame.style.backgroundPosition = 'center top';
+  frame.style.overflow = 'hidden';
+  frame.querySelectorAll('.portrait-content, .portrait-line').forEach(el => {
+    el.style.display = 'none';
+  });
+});
