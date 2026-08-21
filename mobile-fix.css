@@ -1,5 +1,8 @@
 /* Mobile layout refinements */
 .mobile-title{display:none}
+/* Real doctor portrait */
+.portrait-frame{background-image:url('dr-reshma.svg');background-size:cover;background-position:center top;overflow:hidden}
+.portrait-content,.portrait-line{display:none!important}
 @media (max-width: 767px) {
   html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
   .container { width: min(100% - 32px, 1160px); }
