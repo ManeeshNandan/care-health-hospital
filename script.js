@@ -37,14 +37,19 @@ backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smo
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Force the real founder photograph onto the doctor card.
-// This also bypasses any stale mobile CSS that may still show the old placeholder.
+// Use the actual founder photograph from the repository.
+// Do not replace it with the old placeholder SVG.
 document.querySelectorAll('.portrait-frame').forEach(frame => {
-  frame.style.backgroundImage = "url('dr-reshma.svg?v=5')";
+  frame.style.backgroundImage = "url('D4D2696D-443A-4184-A4F1-EBA2C4E6B08F.png?v=6')";
   frame.style.backgroundSize = 'cover';
-  frame.style.backgroundPosition = 'center top';
+  frame.style.backgroundPosition = 'center 18%';
   frame.style.overflow = 'hidden';
+  frame.style.filter = 'none';
+
   frame.querySelectorAll('.portrait-content, .portrait-line').forEach(el => {
-    el.style.display = 'none';
+    el.style.display = '';
   });
+
+  const monogram = frame.querySelector('.portrait-monogram');
+  if (monogram) monogram.style.display = 'none';
 });
